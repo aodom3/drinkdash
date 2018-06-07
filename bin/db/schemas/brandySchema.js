@@ -1,6 +1,6 @@
 const Schema = require('mongoose').Schema
 
-const drinkSchema = new Schema({
+const brandySchema = new Schema({
     name: "string",
     description: "string",
     img: "ut.png",
@@ -8,4 +8,4 @@ const drinkSchema = new Schema({
     qty: 
 })
 
-module.exports = drinkSchema
+module.exports = brandySchema
