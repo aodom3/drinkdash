@@ -12,15 +12,6 @@ db.on('error', function(err) {
   
   db.close();
   
-const ShopperSchema = new Schema({
-    name: "string",
-    email: "string",
-    age: "number",
-    drink: [],
-    payment: "string",
-    
-});
-
 const DrinkSchema = new Schema({
     name: "string",
     type: "string",
@@ -28,11 +19,18 @@ const DrinkSchema = new Schema({
     price: "number,
     picture: "string",
     stocked: "boolean"
-
-    
 });
 
-const ShopperModel = mongoose.model("Shopper", shopperSchema);
+const ShopperSchema = new Schema({
+    name: "string",
+    email: "string",
+    age: "number",
+    drink: [],
+    payment: "string",    
+});
+
 const DrinkModel = mongoose.model("Drink", drinkSchema);
+const ShopperModel = mongoose.model("Shopper", shopperSchema);
+
 
 module.exports = drinkSchema
