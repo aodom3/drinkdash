@@ -1,4 +1,5 @@
 const Schema = require('mongoose').Schema
+
 // mongoose.connect('mongodb://localhost/shopper')
 
 // const db = mongoose.connection;
@@ -29,8 +30,20 @@ const ShopperSchema = new Schema({
     payment: "string",    
 });
 
-// const DrinkModel = mongoose.model("Drink", drinkSchema);
-// const ShopperModel = mongoose.model("Shopper", shopperSchema);
+const StoreSchema = new Schema({
+    name: "string",
+    address: "string",
+    website: "string",
+    photoUrl: "string",
+});
 
 
-module.exports = ShopperSchema
+const DrinkModel = mongoose.model("Drink", drinkSchema);
+const ShopperModel = mongoose.model("Shopper", shopperSchema);
+
+
+module.exports = {
+    ShopperSchema,
+    DrinkSchema,
+    StoreSchema,
+}

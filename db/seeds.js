@@ -1,7 +1,7 @@
+require('dotenv').config()
+const Shopper = require('./models/Shopper')
 const mongoose = require('mongoose')
-const Drinks = require('../models/Drinks')
-
-
+    
 // Connect to Database
 mongoose.connect('mongodb://localhost/drinkdash')
     .then(() => {
@@ -11,53 +11,44 @@ mongoose.connect('mongodb://localhost/drinkdash')
         console.log('ERROR', err)
     })
 
-
-
-
-Drinks.remove()
-.then(()=>{
-
-
-// create new test Drinks data
-const vodka = new vodka({
-    title: 'vodka',
-    description: 'pirates',
-    subject: 'express',
-    createdBy: 'bob',
-    comments: [comment1, comment2]
-})
-const brandy = new brandy({
-    title: 'Pirates update/dleete',
-    description: 'more pirates',
-    subject: 'express',
-    createdBy: 'joof',
-    comments: [comment1, comment2]
-})
-const homework3 = new Homework({
-    title: 'Pizza Express',
-    description: 'PIZZA',
-    subject: 'React',
-    createdBy: 'sal',
-    comments: [comment1, comment2]
-})
-const homework4 = new Homework({
-    title: 'final project',
-    description: 'everything',
-    subject: 'rails',
-    createdBy: 'bryan',
-    comments: [comment1, comment2]
-})
-
-const homeworks = [homework1, homework2, homework3, homework4]
-
-// save test data
-return Drinks.insertMany(drinks)
-
-
-
-})
-.then(() => {
-
-    // close the database
-    mongoose.connection.close()
-})
+    
+    // connect to database
+    mongoose.connect(process.env.MONGODB_URI)
+    
+    mongoose.connection.once('open', () => {
+        console.log(`Mongoose has connected to MongoDB`)
+    })
+    
+    mongoose.connection.on('error', (error) => {
+        console.error(`
+        MongoDB connection error!!! 
+        ${error}
+      `)
+        process.exit(-1)
+    })
+    
+    // Delete all users, then add some fake ones
+    User.remove({})
+        .then(() => {
+            const olee = new User({
+                nickName: 'olee',
+                email: 'olee@test.com',
+                firstName: 'Okhyun',
+                lastName: 'Lee',
+                photoUrl: 'https://media-exp2.licdn.com/mpr/mpr/shrinknp_200_200/p/7/000/1ea/270/09d189f.jpg'
+            })
+    
+            return olee.save()
+    
+        })
+        .catch((error) => {
+            console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
+            console.log(error)
+        }).then(() => {
+            mongoose.connection.close()
+            console.log(`
+            Finished seeding database...
+            
+            Disconnected from MongoDB
+          `)
+        })
