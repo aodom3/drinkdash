@@ -1,4 +1,3 @@
-require('dotenv').config()
 const Shopper = require('./models/Shopper')
 const mongoose = require('mongoose')
     
@@ -11,23 +10,7 @@ mongoose.connect('mongodb://localhost/drinkdash')
         console.log('ERROR', err)
     })
 
-    
-    // connect to database
-    mongoose.connect(process.env.MONGODB_URI)
-    
-    mongoose.connection.once('open', () => {
-        console.log(`Mongoose has connected to MongoDB`)
-    })
-    
-    mongoose.connection.on('error', (error) => {
-        console.error(`
-        MongoDB connection error!!! 
-        ${error}
-      `)
-        process.exit(-1)
-    })
-    
-    // Delete all users, then add some fake ones
+ // Delete all users, then add some fake ones
     User.remove({})
         .then(() => {
             const olee = new User({
