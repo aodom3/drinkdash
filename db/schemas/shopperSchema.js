@@ -33,5 +33,6 @@ const DrinkSchema = new Schema({
 });
 
 const ShopperModel = mongoose.model("Shopper", shopperSchema);
+const DrinkModel = mongoose.model("Drink", drinkSchema);
 
 module.exports = drinkSchema
