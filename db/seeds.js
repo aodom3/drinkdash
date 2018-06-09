@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
-const Store = require('../models/Store')
-const Drinks = require('../models/Drinks')
-const Shopper = require('../models/Shopper')
+const Shopper = require('../db/models/shopper')
+const Store = require('../db/models/store')
+const Drinks = require('..db/models/drinks')
+
     
 // Connect to Database
 mongoose.connect('mongodb://localhost/drinkdash')
@@ -13,7 +14,7 @@ mongoose.connect('mongodb://localhost/drinkdash')
     })
 
  // Delete all users
-    Shopper.remove({})
+    Shopper.remove()
         .then(() => {
             const kofi = new Shopper({
                 name: 'Kofi Siriboe',
