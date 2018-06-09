@@ -1,12 +1,12 @@
+const Schema = require('mongoose').Schema
+
 const drinksSchema = new Schema({
-    name: String,
     type: String,
+    name: String,
     size: Number,
     price: Number,
-    picture: String,
+    photo: String,
     stocked: Boolean
 });
-
-
 
 module.exports = drinksSchema

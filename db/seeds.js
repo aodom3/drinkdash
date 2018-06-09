@@ -1,5 +1,7 @@
-const Shopper = require('./models/Shopper')
 const mongoose = require('mongoose')
+const Store = require('../models/Store')
+const Drinks = require('../models/Drinks')
+const Shopper = require('../models/Shopper')
     
 // Connect to Database
 mongoose.connect('mongodb://localhost/drinkdash')
