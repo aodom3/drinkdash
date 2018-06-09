@@ -13,14 +13,7 @@ const Schema = require('mongoose').Schema
   
 //   db.close();
   
-const drinkSchema = new Schema({
-    name: String,
-    type: String,
-    size: Number,
-    price: Number,
-    picture: String,
-    stocked: Boolean
-});
+
 
 const shopperSchema = new Schema({
     name: String,
@@ -30,20 +23,11 @@ const shopperSchema = new Schema({
     payment: String,    
 });
 
-const storeSchema = new Schema({
-    name: String,
-    address: String,
-    website: String,
-    photoUrl: String,
-});
+
 
 
 const DrinkModel = mongoose.model("Drink", drinkSchema);
 const ShopperModel = mongoose.model("Shopper", shopperSchema);
 
 
-module.exports = {
-    shopperSchema,
-    drinkSchema,
-    storeSchema,
-}
+module.exports = shopperSchema
