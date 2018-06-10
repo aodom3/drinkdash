@@ -5,13 +5,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressHbs = require('express-handlebars');
 const indexRouter = require('./routes/index');
-// const usersRouter = require('./routes/users');
+
+
 
 const app = express();
+mongoose.connect('localhost: 27017/drinking');
 
 // view engine setup
 app.engine('.hbs', expressHbs ({defaultLayout: 'layout', extname: '.hbs'}));
-app.set('view engine', 'hbs');
+app.set('view engine', '.hbs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -20,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
