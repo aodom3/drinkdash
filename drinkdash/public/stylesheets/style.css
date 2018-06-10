@@ -1,3 +1,9 @@
 .thumbnail img{
   max-height: 400px;
 }
+
+.price {
+  font-size: 15px;
+  color: maroon;
+}
+
