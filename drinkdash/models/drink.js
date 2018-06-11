@@ -8,4 +8,4 @@ const drinkSchema = new Schema ({
     price:{type: Number, required: true},
 })
 
-module.export = mongoose.model('Drink', schema);
+// module.export = mongoose.model('Drink', Schema);
