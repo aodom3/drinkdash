@@ -11,7 +11,7 @@ const mongoose = require('mongoose');
 
 
 const app = express();
-// mongoose.connect('localhost: 27017/drinking');
+
 mongoose.connect('mongodb://localhost/drinkdash')
   .then(() => {
     console.log('connected to mongoDB')

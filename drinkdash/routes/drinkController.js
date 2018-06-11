@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Shopper = require('../models/Shopper')
+const drink = require('../models/drink')
 
 /* GET drink info. */
 // localhost/shopper
@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
       // pieces of data that match the Drink Model
       res.render('drink/index', { listOfDrinks: listOfDrinks })
     })
-    .catch((err) => res.send(err))
+    // .catch((err) => res.send(err))
 
 })
 

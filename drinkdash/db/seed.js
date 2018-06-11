@@ -1,8 +1,10 @@
-const Drink = require('../models/drink.js');
-const Shopper = require('../models/shopper.js')
 const mongoose =require('mongoose');
+const Drink = require('../models/drink.js');
+// const Shopper = require('../models/shopper.js');
+
 require('dotenv').config()
 
+//Connect to Database
 
 mongoose.connect('mongodb://localhost/drinkdash')
   .then(() => {
@@ -12,10 +14,10 @@ mongoose.connect('mongodb://localhost/drinkdash')
     console.log('ERROR', err)
   })
 
-
+//Remove old Drinks data
   Drink.remove()
     .then(()=>{
-
+        //create new test Drink data
    const drink1 = new Drink({
         imgPath:'https://drizly-products2.imgix.net/ci-hennessy-vs-cognac-54f25e684cec6aef.png?auto=format%2Ccompress&fm=jpeg&q=20',
         label:'Hennesy',
