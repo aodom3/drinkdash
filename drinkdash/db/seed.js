@@ -1,4 +1,4 @@
-const Drink = require('../models/drink');
+const Drink = require('../db/schemas/drinkSchema');
 const mongoose =require('mongoose');
 
 mongoose.connect('localhost: 27017/drinking');

@@ -1,13 +1,6 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const shopperSchema = require('../db/schemas/shopperSchema')
 
-const shopperSchema = new Schema ({
-    firstName:{type: String, required: true},
-    lastName:{type: String, required: true},
-    username:{type: String, required: true},
-    city:{type: String, required: true},
-    state:{type: String, required: true},
-    zip:{type: Number, required: true},
-});
+const Shopper = mongoose.model('shopper', shopperSchema)
 
-module.export = mongoose.model('Shopper', shopperSchema);
+module.exports = Shopper

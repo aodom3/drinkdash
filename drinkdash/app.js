@@ -6,14 +6,24 @@ const logger = require('morgan');
 const expressHbs = require('express-handlebars');
 const indexRouter = require('./routes/index');
 const mongoose = require('mongoose');
+// const methodOverride = require('method-override')
+
 
 
 const app = express();
 // mongoose.connect('localhost: 27017/drinking');
+mongoose.connect('mongodb://localhost/drinkdash')
+  .then(() => {
+    console.log('connected to mongoDB')
+  })
+  .catch((err) => {
+    console.log('ERROR', err)
+  })
 
 // view engine setup
 app.engine('.hbs', expressHbs ({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
+// app.use(methodOverride('_method'))
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,6 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+const shopperController = require('./routes/shopperController')
+app.use('/shoppers', shopperController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
