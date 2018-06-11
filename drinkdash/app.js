@@ -5,11 +5,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressHbs = require('express-handlebars');
 const indexRouter = require('./routes/index');
-
+const mongoose = require('mongoose');
 
 
 const app = express();
-// mongoose.connect('localhost: 27017/drinking');
+mongoose.connect('localhost: 27017/drinking');
 
 // view engine setup
 app.engine('.hbs', expressHbs ({defaultLayout: 'layout', extname: '.hbs'}));
