@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const Drink = require('../models/Drink')
-
+const Drink = require('../models/drink')
+const Shopper = require('../models/shopper')
 /* GET drink info. */
 // localhost/shopper
 router.get('/', (req, res, next) => {
@@ -24,6 +24,15 @@ router.get('/new', (req, res) => {
   res.render('drink/new')
 })
 
+// SHOW Route
+router.get('/:id', (req, res) => {
+  Drink
+    .findById(req.params.id)
+    .then((listofDrink) => {
+      res.render('drink/show', { listofDrink })
+    })
+})
+
 // CREATE Route
 router.post('/', (req, res) => {
   const newDrink = req.body
@@ -34,21 +43,14 @@ router.post('/', (req, res) => {
     })
 })
 
-// SHOW Route
-router.get('/:id', (req, res) => {
-  Drink
-    .findById(req.params.id)
-    .then((listofDrink) => {
-      res.render('drink/show', { listofDrink })
-    })
-})
+
 
 // EDIT Route
 router.get('/:id/edit', (req, res) => {
   Drink
     .findById(req.params.id)
     .then((Ciroc) => {
-      res.render('shopper/edit', { listofDrink: Ciroc })
+      res.render('drink/edit', { Ciroc })
     })
 })
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const drinkSchema = require('../db/schemas/drinkSchema')
+const Schema = require('../db/scheemas.js')
 
-const Drink = mongoose.model('drink', drinkSchema)
+const Drink = mongoose.model('drink', Schema.drinkSchema)
 
 module.exports = Drink
