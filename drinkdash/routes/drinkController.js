@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 
       // Once you have all drinks, then render out index page drink is all
       // pieces of data that match the Drink Model
-      res.render('drinks/index', { listOfDrinks: listOfDrinks })
+      res.render('drink/index', { listOfDrinks: listOfDrinks })
     })
     .catch((err) => res.send(err))
 

@@ -30,6 +30,7 @@ const drinks = [
 }),
 
 ];
+const shoppers = []
 
 for (let i = 0; i< drinks.length; i++){
     drinks[i].save();
