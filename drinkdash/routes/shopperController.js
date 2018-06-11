@@ -26,7 +26,7 @@ router.get('/new', (req, res) => {
 
 // CREATE Route
 router.post('/', (req, res) => {
-  const newDrink = req.body
+  const newShopper = req.body
   Shopper
     .create(newDrink)
     .then(() => {
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Shopper
     .findById(req.params.id)
-    .then((listofDrink) => {
+    .then((listofShopper) => {
       res.render('shopper/show', { listofShopper })
     })
 })
@@ -47,8 +47,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   Shopper
     .findById(req.params.id)
-    .then((Ciroc) => {
-      res.render('shopper/edit', { listofShopper: email })
+    .then((Person) => {
+      res.render('shopper/edit', { Person })
     })
 })
 

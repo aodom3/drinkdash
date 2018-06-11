@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const Schema = require('../db/scheemas.js')
+const shopperSchema = require('../db/schemas/shopperSchema')
 
-const Shopper = mongoose.model('shopper', Schema.shopperSchema)
+const Shopper = mongoose.model('shopper', shopperSchema)
 
 module.exports = Shopper

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Drink = require('../db/schemas/drinkSchema');
+const schema = require('../db/schemas/Schema');
+const Drink = schema.drinkSchema
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // let drinks = Drink.find();
