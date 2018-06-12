@@ -1,16 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const Shopper = require('../models/Shopper')
+const Shopper = require('../models/shopper')
 
 /* GET drink info. */
 // localhost/shopper
 router.get('/', (req, res, next) => {
 
   // Find all Shoppers
-  shopper.find()
+  Shopper.find()
     .then((shopper) => {
 
-      res.render('drink/index', { shopper: shopper })
+      res.render('shopper/index', { shopper: shopper })
     })
     .catch((err) => res.send(err))
 
@@ -37,6 +37,7 @@ router.get('/:id', (req, res) => {
     .findById(req.params.id)
     .then((shopper) => {
       res.render('shopper/show', { shopper })
+      console.log(shopper)
     })
 })
 
@@ -44,8 +45,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   Shopper
     .findById(req.params.id)
-    .then((shopper) => {
-      res.render('shopper/edit', { shopper })
+    .then((doThis) => {
+      res.render('shopper/edit', { shopper: doThis })
     })
 })
 
