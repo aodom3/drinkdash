@@ -1,33 +1,18 @@
 <main>
-
     <h2>You're Thinking About Drinking: {{drink.label}}</h2>
-
     <div class="drink-container-show">
-        <h2 id="drink-name">
-
-                {{drink.label}}
-
-
-        </h2>
-
-                <img src={{drink.img}} alt={{drink.label}} width='200'>
-
+        <img src={{drink.img}} alt={{drink.label}} width='200'>
         <br>
-        <h3>Price:</h3>
+        <h2>Price:</h2>
             <p id="cost">${{drink.price}} a bottle</p><br>
-
-            <h3 id="quantity">
-
-                     {{drink.size}} mL
-
-            </h3>
-
-            <br>
+        <h3 id="quantity">
+            {{drink.size}} mL
+        </h3>
+        <br>
             <a href="/{{drink._id}}/edit"><button type="submit">Switch Up!</button></a>
         </div>
-<form action="/{{drink._id}}?_method=DELETE" method="POST">
+    <form action="/{{drink._id}}?_method=DELETE" method="POST">
         <button type="submit">Delete Your Drink</button>
-    
     </form>
     <a href="/"><button>Go Back</button></a>
 </main>

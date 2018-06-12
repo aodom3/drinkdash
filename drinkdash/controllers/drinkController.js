@@ -68,7 +68,7 @@ router.get('/:id/edit', (req, res) => {
 
 // UPDATE Route
 //Create a PUT update route "/:id" that updates the drink and
-// redirects back to the SHOW PAGE (not index)
+// redirects back to the SH-0[p.OW PAGE (not index)
 router.put('/:id', (req, res) => {
   drink.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(() => {
     res.redirect(`/${req.params.id}`)
