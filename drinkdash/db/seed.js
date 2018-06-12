@@ -31,7 +31,7 @@ mongoose.connect('mongodb://localhost/drinkdash')
         price:28.99,
 });
     const drink3 = new Drink({
-        label:'D&#39Usse VSOP',
+        label:'DUsse VSOP',
         img:'https://drizly-products0.imgix.net/ci-dusse-vsop-cognac-a9c7e304ba490578.png?auto=format%2Ccompress&fm=jpeg&q=20',
         size: 750,
         price:48.99,

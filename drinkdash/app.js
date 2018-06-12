@@ -12,7 +12,12 @@ const methodOverride = require('method-override');
 // app.use('/shoppers', shopperController)
 const drinkController = require('./controllers/drinkController.js')
 app.use('/', drinkController)
-
+const handlebars = require('express-handlebars').create({
+  layoutsDir: path.join(__dirname, "views"),
+  partialsDir: path.join(__dirname, "views/partials"),
+  defaultLayout: 'layout',
+  extname: 'hbs'
+});
 
 
 
@@ -27,7 +32,7 @@ mongoose.connect('mongodb://localhost/drinkdash')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
-
+app.engine('hbs', handlebars.engine)
 app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());

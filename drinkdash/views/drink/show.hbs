@@ -1,11 +1,6 @@
 <main>
 
-    <h2>You are viewing:
-
-{{drink.label}}
-    </h2>
-
-    <a href="/">Go Back to the Main Page</a>
+    <h2>You're Thinking About Drinking: {{drink.label}}</h2>
 
     <div class="drink-container-show">
         <h2 id="drink-name">
@@ -28,9 +23,11 @@
             </h3>
 
             <br>
-            <a href="/{{drink._id}}/edit">Switch Up!</a>
+            <a href="/{{drink._id}}/edit"><button type="submit">Switch Up!</button></a>
         </div>
 <form action="/{{drink._id}}?_method=DELETE" method="POST">
         <button type="submit">Delete Your Drink</button>
+    
     </form>
+    <a href="/"><button>Go Back</button></a>
 </main>
