@@ -3,12 +3,12 @@ This app lets you buy alcohol to be delivered or picked up at local store withou
 The three models represented are shopper (user using the product), the store, and drink.
 
 ## Technologies Used
-Express
-MongoDB
-Mongoose
-Handlebars
-HTML/CSS
-Javascript
+1. Express
+2. MongoDB
+3. Mongoose
+4.Handlebars
+5. HTML/CSS
+6. Javascript
 
 ## Link to Trello Board
 https://trello.com/b/ZsfuZvwe/wdi-project-2-drink-dash
