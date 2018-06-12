@@ -6,8 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose'); 
 const methodOverride = require('method-override')
-const indexRouter = require('./controllers/index');
-const usersRouter = require('./controllers/userController');
+
 
 mongoose.connect(process.env.MONGODB_URI); 
 
@@ -36,7 +35,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', router);
+const cartController = require('./controllers/cartController');
+app.use('/cart', cartController)
+const drinkController = require('./controllers/drinkController');
+app.use('/', drinkController)
+const shopperController = require('./controller/shopperController');
+// app.use('/', router);
 
 
 
