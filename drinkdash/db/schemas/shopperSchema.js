@@ -1,31 +1,14 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+// const mongoose = require('mongoose')
+const Schema = require('mongoose').Schema
 
 const shopperSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-    username: {
-        type: String,
-        required: true
-    },
-    city: {
-        type: String,
-        required: true
-    },
-    state: {
-        type: String,
-        required: true
-    },
-    zip: {
-        type: Number,
-        required: true
-    },
-});
+    firstName: String,
+    lastName: String,
+    username: String,
+    city: String,     
+    state: String,
+    zip: Number,
+    }),
+
 
 module.exports = shopperSchema

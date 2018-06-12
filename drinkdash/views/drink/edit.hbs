@@ -1,4 +1,4 @@
-<main>
+<div class="container">
     <h2>Switch Up Your Drink!</h2>
     
 
@@ -10,30 +10,28 @@
 		<form action="/{{drink._id}}?_method=PUT" method="POST">
 			<div>
 				<label for="name">Drink</label>
-				<input type="text" name="name" value={{drink.name}} />
+				<input type="text" name="name" value={{drink.name}} >
 			</div>
 			<div>
 				<label for="img">Image URL</label>
 				<input type="text" name="img" value="{{drink.img}}" />
 			</div>
+            <div>
+				<label for="size">Size</label>
+				<input type="number" name="size" value={{drink.size}}>
+			</div>
 			<div>
 				<label for="price">Price</label>
 				<input type="number" name="price" value={{drink.price}} />
 			</div>
-			<div>
-				<label for="size">Size</label>
-				<input type="number" name="size" value={{drink.size}}>
-			</div>
-			<a><button type="button" class="btn btn-success">Save Drink</button></a>
-            <a><button type="button" class="btn btn-warning">Go Back</button></a>
+			
+			<button type="submit" class="btn btn-success">Save Drink</button>
+            <a href="/"><button type="button" class="btn btn-warning">Go Back</button></a>
 		</form>
 
 	</div>
-
-
 		<div id="img-preview">
 			<img src="{{drink.img}}">
 		</div>
-
 	</div>
-</main>
+</div>

@@ -5,7 +5,11 @@
     <p class="lead">Now You Can Order Drinks IN The Comfort Of Your Own HOME.</p>
   </div></center>
 </div>
-    
+<div class="newDrink">
+  <a href="/new{{showDrink._id}}">
+  <button type="button" class="btn btn-warning">Find a Drink</button>  
+  </a>
+</div>
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -19,24 +23,6 @@
     </div>
   </div>
 </div>
-
-        {{!-- {{#each drink}}
-            <div class="drink-container">
-                  
-                <img src={{this.img}} alt={{this.label}} width='400'>
-
-                  <h3> <a href="/{{this._id}}">{{this.label}}</a></h3>
-
-                <p>$ {{this.price}} </p>
-                <p> {{this.size}}mL </p>
-
-            </div>
-        
-        {{/each}}
-
-</main>
-<img src="" alt=""> --}}
-
 
 {{#each drink}}
 
@@ -54,6 +40,7 @@
       </div>
     </div>
   </div>
+  
    {{!-- <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <img src="https://img.thewhiskyexchange.com/900/cognc_hen6.jpg" alt="...">
@@ -118,3 +105,4 @@
   </div>
 </div>  --}}
 {{/each}}
+
