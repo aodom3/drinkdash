@@ -6,15 +6,15 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose'); 
 const methodOverride = require('method-override')
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/userController');
+const indexRouter = require('./controllers/index');
+const usersRouter = require('./controllers/userController');
 
 mongoose.connect(process.env.MONGODB_URI); 
 
 const app = express();
 
 // Connect to Database
-mongoose.connect('mongodb://localhost/Foodie-Roadmap')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('   ===============================  ')
     console.log('   CONNECTION TO MONGO ESTABLISHED  ')
