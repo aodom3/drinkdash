@@ -1,42 +1,34 @@
+require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const expressHbs = require('express-handlebars');
-const router = require('./controllers/index');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); 
+const methodOverride = require('method-override')
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/userController');
+
+mongoose.connect(process.env.MONGODB_URI); 
+
 const app = express();
-const methodOverride = require('method-override');
 
-const drinkController = require('./controllers/drinkController.js')
-app.use('/', drinkController)
-const cartController = require('./controllers/cartController')
-app.use('/cart', cartController)
-
-
-
-const handlebars = require('express-handlebars').create({
-  layoutsDir: path.join(__dirname, "views"),
-  partialsDir: path.join(__dirname, "views/partials"),
-  defaultLayout: 'layout',
-  extname: 'hbs'
-});
-
-
-
-mongoose.connect('mongodb://localhost/drinkdash')
+// Connect to Database
+mongoose.connect('mongodb://localhost/Foodie-Roadmap')
   .then(() => {
-    console.log('connected to mongoDB')
+    console.log('   ===============================  ')
+    console.log('   CONNECTION TO MONGO ESTABLISHED  ')
+    console.log('   ===============================  ')
   })
   .catch((err) => {
     console.log('ERROR', err)
   })
 
+
 // view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'hbs')
-app.engine('hbs', handlebars.engine)
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
 app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
