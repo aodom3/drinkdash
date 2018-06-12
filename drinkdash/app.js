@@ -8,8 +8,8 @@ const router = require('./controllers/index');
 const mongoose = require('mongoose');
 const app = express();
 const methodOverride = require('method-override');
-// const shopperController = require('./controllers/shopperController')
-// app.use('/shoppers', shopperController)
+const cartController = require('./controllers/cartController')
+app.use('/cart', cartController)
 const drinkController = require('./controllers/drinkController.js')
 app.use('/', drinkController)
 const handlebars = require('express-handlebars').create({

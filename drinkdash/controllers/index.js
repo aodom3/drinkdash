@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const schema = require('../db/schemas/Schema');
 const Drink = schema.drinkSchema
+const Cart = schema.cartSchema
+const Shopper = schema.shopperSchema
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

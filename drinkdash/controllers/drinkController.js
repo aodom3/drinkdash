@@ -20,6 +20,8 @@ router.get('/', (req, res, next) => {
 router.get('/new', (req, res) => {
   res.render('drink/new')
 })
+
+
 router.post('/', (req, res) => {
   const newDrink = req.body
   drink.create(newDrink)

@@ -7,13 +7,10 @@ const Shopper = require('../models/Shopper')
 router.get('/', (req, res, next) => {
 
   // Find all Shoppers
-  Shopper
-    .find()
-    .then((listOfShoppers) => {
+  shopper.find()
+    .then((shopper) => {
 
-      // Once you have all drinks, then render out index page drink is all
-      // pieces of data that match the Shopper Model
-      res.render('shopper/index', { listOfShoppers: listOfShoppers })
+      res.render('drink/index', { shopper: shopper })
     })
     .catch((err) => res.send(err))
 
@@ -28,7 +25,7 @@ router.get('/new', (req, res) => {
 router.post('/', (req, res) => {
   const newShopper = req.body
   Shopper
-    .create(newDrink)
+    .create(newShopper)
     .then(() => {
       res.redirect('/shopper')
     })
@@ -38,8 +35,8 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Shopper
     .findById(req.params.id)
-    .then((listofShopper) => {
-      res.render('shopper/show', { listofShopper })
+    .then((shopper) => {
+      res.render('shopper/show', { shopper })
     })
 })
 
@@ -47,8 +44,8 @@ router.get('/:id', (req, res) => {
 router.get('/:id/edit', (req, res) => {
   Shopper
     .findById(req.params.id)
-    .then((Person) => {
-      res.render('shopper/edit', { Person })
+    .then((shopper) => {
+      res.render('shopper/edit', { shopper })
     })
 })
 

@@ -1,8 +1,8 @@
+require('dotenv').config()
 const mongoose =require('mongoose');
 const Drink = require('../models/drink');
 const Shopper = require('../models/shopper');
-
-// require('dotenv').config()
+const Cart = require('../models/cart')
 
 //Connect to Database
 
