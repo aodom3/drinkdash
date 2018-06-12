@@ -8,7 +8,7 @@ const shopperSchema = new Schema({
     city: String,     
     state: String,
     zip: Number,
-    }),
+    })
 
 
 module.exports = shopperSchema
