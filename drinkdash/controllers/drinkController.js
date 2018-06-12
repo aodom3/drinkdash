@@ -3,7 +3,6 @@ const router = express.Router()
 const drink = require('../models/drink')
 
 /* GET drink info. */
-// Create a GET index route "/" that sends all drinks to index.hbs
 
 router.get('/', (req, res, next) => {
 
@@ -11,8 +10,6 @@ router.get('/', (req, res, next) => {
   drink.find()
     .then((drink) => {
 
-      // Once you have all drinks, then render out index page drink is all
-      // pieces of data that match the Drink Model
       res.render('drink/index', { drink: drink })
     })
     .catch((err) => res.send(err))
@@ -24,18 +21,24 @@ router.get('/', (req, res, next) => {
 router.get('/new', (req, res) => {
   res.render('drink/new')
 })
+router.post('/', (req, res) => {
+  const newDrink = req.body
+  drink.create(newDrink)
+    .then(() => {
+      res.redirect('/')
+    })
+})
 
 router.get('/', (req,res) =>{
   console.log("inside / ")
   drink.find().then(drink =>{
-      res.render('drink/index', {
-          drink:drink
-      })
+      res.render('drink/index', { drink:
+        drink })
   })
 })
 
 // SHOW Route
-// Create a GET show route "/:id" that renders the drink's show page
+
 router.get('/:id', (req, res) => {
   drink.findById(req.params.id)
     .then((drink) => {
@@ -44,11 +47,10 @@ router.get('/:id', (req, res) => {
 })
 
 // CREATE Route
-// Create a POST index route "/" that creates a new drink
-// and upon success redirects back to the index page "/"
+
 router.post('/', (req, res) => {
   const newDrink = req.body
-  Drink
+  drink
     .create(newDrink)
     .then(() => {
       res.redirect('/')
