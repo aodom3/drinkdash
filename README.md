@@ -15,7 +15,7 @@ The three models represented are shopper (user using the product), the store, an
 https://trello.com/b/ZsfuZvwe/wdi-project-2-drink-dash
 
 ## Link to Heroku
-https://whispering-plains-10392.herokuapp.com/
+https://dashboard.heroku.com/apps/drinkdash
 ## Wireframe
 
 ## ERD
