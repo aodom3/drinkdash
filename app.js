@@ -39,7 +39,7 @@ const cartController = require('./controllers/cartController');
 app.use('/cart', cartController)
 const drinkController = require('./controllers/drinkController');
 app.use('/', drinkController)
-const shopperController = require('./controller/shopperController');
+const shopperController = require('./controllers/shopperController');
 // app.use('/', router);
 
 
