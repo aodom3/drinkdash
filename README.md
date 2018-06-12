@@ -7,8 +7,9 @@ The three models represented are shopper (user using the product), the store, an
 2. MongoDB
 3. Mongoose
 4.Handlebars
-5. HTML/CSS
+5. HTML
 6. Javascript
+7. Bootstrap
 
 ## Link to Trello Board
 https://trello.com/b/ZsfuZvwe/wdi-project-2-drink-dash
