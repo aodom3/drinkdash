@@ -1,0 +1,37 @@
+<main>
+
+    <h2>You are viewing:
+
+{{donut.name}}
+    </h2>
+
+    <a href="/">Go Back to the Main Page</a>
+
+    <div class="drink-container-show">
+        <h2 id="drink-name">
+
+                {{drink.label}}
+
+
+        </h2>
+
+                <img src={{drink.img}} alt={{drink.label}} width='200'>
+
+        <br>
+        <h3>Price:</h3>
+            <p id="cost">$
+
+                {{drink.price}} a bottle</p><br>
+
+            <h3 id="quantity">
+
+                     {{drink.size}} mL
+
+            </h3>
+
+            <br>
+        </div>
+<form action="/{{drink._id}}?_method=DELETE" method="POST">
+        <button type="submit">Delete Your Drink</button>
+    </form>
+</main>

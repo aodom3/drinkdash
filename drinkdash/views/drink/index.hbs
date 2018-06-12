@@ -1,17 +1,26 @@
-<h1>All Drinks</h1>
-<ul>
-  {{#each ListofDrinks}}
-  <li>
-    <p>{{label}}</p>
-    <p>{{price}}</p>
-    <p>{{size}}</p>
-  </li>
-  {{/each}}
-</ul>
+<main>
+    <h1>Drinks Without Leaving Your Couch!</h1>
 
+        {{#each drink}}
+            <div class="drink-container">
+
+                <img src={{this.img}} alt={{this.label}} width='200'>
+
+                  <h3> <a href="/{{this._id}}">{{this.label}}</a></h3>
+
+                <p>$ {{this.price}} </p>
+                <p>$ {{this.size}} </p>
+
+            </div>
+        
+        {{/each}}
+
+</main>
+<img src="" alt="">
 
 
 {{!-- 
+
 <div class="row">
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">

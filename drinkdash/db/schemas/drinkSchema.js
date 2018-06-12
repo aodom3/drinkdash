@@ -1,9 +1,9 @@
 const Schema = require('mongoose').Schema
 
 const drinkSchema = new Schema({
-    image: {
+    img: {
         type: String,
-        required: true
+    
     },
     label: {
         type: String,

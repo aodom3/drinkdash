@@ -6,8 +6,9 @@ const logger = require('morgan');
 const expressHbs = require('express-handlebars');
 const indexRouter = require('./routes/index');
 const mongoose = require('mongoose');
-// const methodOverride = require('method-override')
-
+const methodOverride = require('method-override');
+const shopperController = require('./routes/shopperController')
+const drinkController = require('./routes/drinkController')
 
 
 const app = express();
@@ -23,8 +24,8 @@ mongoose.connect('mongodb://localhost/drinkdash')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
-// app.use(methodOverride('_method'))
 
+app.use(methodOverride('_method'))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,11 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-
-const shopperController = require('./routes/shopperController')
 app.use('/shoppers', shopperController)
-
-const drinkController = require('./routes/drinkController')
 app.use('/drinks', drinkController)
 
 // catch 404 and forward to error handler
