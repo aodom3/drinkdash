@@ -8,13 +8,12 @@ const drink = require('../models/drink')
 router.get('/', (req, res, next) => {
 
   // Find all drinks
-  drink
-    .find()
-    .then((listOfDrinks) => {
+  drink.find()
+    .then((drink) => {
 
       // Once you have all drinks, then render out index page drink is all
       // pieces of data that match the Drink Model
-      res.render('drink/index', { listOfDrinks: listOfDrinks })
+      res.render('drink/index', { drink: drink })
     })
     .catch((err) => res.send(err))
 
@@ -71,8 +70,8 @@ router.get('/:id/edit', (req, res) => {
 //Create a PUT update route "/:id" that updates the drink and
 // redirects back to the SHOW PAGE (not index)
 router.put('/:id', (req, res) => {
-  Drink.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(() => {
-    res.redirect(`/shopper/${req.params.id}`)
+  drink.findByIdAndUpdate(req.params.id, req.body, { new: true }).then(() => {
+    res.redirect(`/${req.params.id}`)
   })
 })
 

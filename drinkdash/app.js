@@ -4,14 +4,17 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const expressHbs = require('express-handlebars');
-const indexRouter = require('./routes/index');
+const router = require('./controllers/index');
 const mongoose = require('mongoose');
-const methodOverride = require('method-override');
-const shopperController = require('./routes/shopperController')
-const drinkController = require('./routes/drinkController')
-
-
 const app = express();
+const methodOverride = require('method-override');
+// const shopperController = require('./controllers/shopperController')
+// app.use('/shoppers', shopperController)
+const drinkController = require('./controllers/drinkController.js')
+app.use('/', drinkController)
+
+
+
 
 mongoose.connect('mongodb://localhost/drinkdash')
   .then(() => {
@@ -32,9 +35,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/shoppers', shopperController)
-app.use('/drinks', drinkController)
+app.use('/', router);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

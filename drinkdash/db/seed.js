@@ -54,3 +54,4 @@ console.log("I did it!")
     // close the database
     mongoose.connection.close()
   })
+

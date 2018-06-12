@@ -2,7 +2,7 @@
 
     <h2>You are viewing:
 
-{{donut.name}}
+{{drink.label}}
     </h2>
 
     <a href="/">Go Back to the Main Page</a>
@@ -19,9 +19,7 @@
 
         <br>
         <h3>Price:</h3>
-            <p id="cost">$
-
-                {{drink.price}} a bottle</p><br>
+            <p id="cost">${{drink.price}} a bottle</p><br>
 
             <h3 id="quantity">
 
@@ -30,6 +28,7 @@
             </h3>
 
             <br>
+            <a href="/{{drink._id}}/edit">Switch Up!</a>
         </div>
 <form action="/{{drink._id}}?_method=DELETE" method="POST">
         <button type="submit">Delete Your Drink</button>

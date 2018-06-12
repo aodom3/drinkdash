@@ -1,0 +1,40 @@
+<main>
+
+	<h2>Switch Up Your Drink!</h2>
+
+	<a href="/">Return to the Main Page</a>
+
+	<div id="edit-form" class="drink-container-show">
+
+
+		<div id="edit-form" class="drink-container-show">
+
+		<form action="/{{drink._id}}?_method=PUT" method="POST">
+			<div>
+				<label for="name">Drink</label>
+				<input type="text" name="name" value={{drink.name}} />
+			</div>
+			<div>
+				<label for="img">Image URL</label>
+				<input type="text" name="img" value="{{drink.img}}" />
+			</div>
+			<div>
+				<label for="price">Price</label>
+				<input type="number" name="price" value={{drink.price}} />
+			</div>
+			<div>
+				<label for="size">Size</label>
+				<input type="number" name="size" value={{drink.size}}>
+			</div>
+			<button type="submit">Save Drink</button>
+		</form>
+
+	</div>
+
+
+		<div id="img-preview">
+			<img src="{{drink.img}}">
+		</div>
+
+	</div>
+</main>
